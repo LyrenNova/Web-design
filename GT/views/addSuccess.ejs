@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC" rel="stylesheet">
+        <link href="/stylesheets/menu.css" rel="stylesheet"/>  
+        <link href="/stylesheets/main.css" rel="stylesheet"/>    
+    </head>
+
+    <body>
+        <div class = "container">
+            <div class = "header">           
+            </div>
+
+            <div class = "_navbar">
+            </div>
+
+            <div class = "content">
+                <h2>新增成功!</h2>
+            </div>
+
+            <div class = "_footer">
+            </div>
+        </div>
+    </body>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type='text/javascript'>
+        $.get( "ejs/navbar.ejs", function( data ) {
+            $("._navbar").replaceWith(data);
+        });
+
+        $.get( "ejs/footer.ejs", function( data ) {
+            $("._footer").replaceWith(data);
+        });
+
+    </script>
+</html>
