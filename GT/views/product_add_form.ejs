@@ -12,102 +12,58 @@
             <div class = "header">           
             </div>
 
-            <div class = "_navbar">
+            <div class = "navbar">
             </div>
 
             <div class = "content">
                 <h2>產品新增 </h2>
 
-                <form action = "/product/add" method = "post">
+                
+                <form class = "form" action = "/product/add" method = "post">
                     <div class="form">
-
-                        <!--<input type="file" name="fileupload" value="fileupload" id="fileupload">
-                        <label for="fileupload"> Select a file to upload</label> 
-                        <br>
-                        <input type="image" src="/wp-content/uploads/sendform.png" alt="Submit" width="100">
-                        <br>-->
-                        
+                        <div class = "left">
                         <div id="gallery"></div>
-
-                        <input type="file" id="fileinput" accept="image/*" />
-                        <br>
-
-                        <span class="name">產品編號: </span>
-                        <span class="value"><input type="text" name="prono" maxlength="4"></span>
+                        <input type="file" id = "fileinput" accept = "image/*" style = "display: none;" />
+                        <input type="button" style = "width: 100px; height: 25px; margin-left: 150px; box-sizing: border-box;" value = "選擇圖片" onclick = "document.getElementById('fileinput').click();" />
+                        </div>
+                        
+                        <span class="name">商品名稱: </span>
+                        <span class="value"><input type="text" name="proname" placeholder="請輸入名稱"></span>
                         <br/>
                                         
-                        <span class="name">產品名稱: </span>
-                        <span class="value"><input type="text" name="proname" ></span>
+                        <span class="name">單價: </span>
+                        <span class="value"><input type="text" name="price" placeholder="請顯示價格"></span>
                         <br/>
                                                             
-                        <span class="name">單價: </span>
-                        <span class="value"><input type="number" name="price" ></span>
+                        <span class="name">標籤: </span>
+                        <span class="value"><input type="number" name="label" placeholder="請選擇標籤"></span>
                         <br/>
                                                 
-                        <span class="name">盤點日期: </span>
-                        <span class="value"><input type="date" name="inventorydate" ></span>
+                        <span class="name">商品介紹: </span>
+                        <span class="value"><input type="text" name="description" placeholder="請輸入文字"></span>
                         <br/>	    
-                                        
+                        
+                        <span class="name">付費方式: </span>
+                        <span class="value"><input type="button" name="paymethod" value="請輸入可行方法" ></span>
+                        <br/>	
+
                         <span class="name"></span>
                         <span class="value"><input type="submit" value="新增" ></span>    
-                    </div>    
+                    </div>
                 </form>  
 
             </div>
 
-            <div class = "_footer">
+            <div class = "footer">
             </div>
         </div>
     </body>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script type='text/javascript'>
-
-        function previewImage(file) {
-            var galleryId = "gallery";
-
-            var gallery = document.getElementById(galleryId);
-            var imageType = /image.*/;
-
-            if (!file.type.match(imageType)) {
-                throw "File Type must be an image";
-            }
-
-            var thumb = document.createElement("div");
-            thumb.classList.add('thumbnail'); // Add the class thumbnail to the created div
-
-            var img = document.createElement("img");
-            img.file = file;
-            img.width = 300;
-            _img = new Image();
-            var _URL = window.URL || window.webkitURL;
-            _img.src = _URL.createObjectURL(file);
-            _img.onload = function () {
-                var n = this.height * (300 / this.width);
-                $("#gallery").css("height" ,n);
-            };
-
-            $(gallery).empty();
-            thumb.appendChild(img);
-            gallery.appendChild(thumb);
-
-            // Using FileReader to display the image content
-            var reader = new FileReader();
-            reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-            reader.readAsDataURL(file);
-        }
-        $.get( "ejs/navbar.ejs", function( data ) {
-            $("._navbar").replaceWith(data);
-        });
-
-        $.get( "ejs/footer.ejs", function( data ) {
-            $("._footer").replaceWith(data);
-        });
-        var uploadfiles = document.querySelector('#fileinput');
-        uploadfiles.addEventListener('change', function () {
-            var files = this.files;
-                previewImage(this.files[0]);
-        }, false);
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script>
+        $("div.form").css("width", $("form.form").css("width"));
     </script>
+    <script src = "/js/public_div.js"></script>
+    <script src = "/js/preview_image.js"></script>
 
 </html>
