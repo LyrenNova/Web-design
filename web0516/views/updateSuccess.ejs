@@ -26,7 +26,7 @@
                 <ul>          
                     <li><a href="/customer/add/form">新增</a></li>
                     <li><a href="/customer/remove/form">刪除</a></li>
-                    <li><a href="/customer/update/getOldData">更新</a></li>   
+                    <li><a href="/customer/update/no">更新</a></li>   
                     <li><a href="/customer/query/form">查詢</a></li>     
                     <li><a href="/customer/list">清單</a></li>   
                     <li><a href="/customer/page/1">分頁</a></li>                    
@@ -38,7 +38,7 @@
                 <ul>          
                     <li><a href="/product/add/form">新增</a></li>
                     <li><a href="/product/remove/form">刪除</a></li>
-                    <li><a href="/product/update/getOldData">更新</a></li>   
+                    <li><a href="/product/update/no">更新</a></li>   
                     <li><a href="/product/query/form">查詢</a></li>  
                     <li><a href="/product/list">清單</a></li>  
                     <li><a href="/product/page/1">分頁</a></li>                    
@@ -50,7 +50,7 @@
                 <ul>          
                     <li><a href="/supplier/add/form">新增</a></li>
                     <li><a href="/supplier/remove/form">刪除</a></li>
-                    <li><a href="/supplier/update/getOldData">更新</a></li>   
+                    <li><a href="/supplier/update/no">更新</a></li>   
                     <li><a href="/supplier/query/form">查詢</a></li>
                     <li><a href="/supplier/list">清單</a></li> 
                     <li><a href="/supplier/page/1">分頁</a></li>                    
@@ -63,7 +63,7 @@
                 <ul>          
                     <li><a href="/employee/add/form">新增</a></li>
                     <li><a href="/employee/remove/form">刪除</a></li>
-                    <li><a href="/employee/update/getOldData">更新</a></li>   
+                    <li><a href="/employee/update/no">更新</a></li>   
                     <li><a href="/employee/query/form">查詢</a></li> 
                     <li><a href="/employee/list">清單</a></li>  
                     <li><a href="/employee/page/1">分頁</a></li>                    
@@ -100,41 +100,7 @@
         
         <!--~~~~~~~~~~~~~~~~~--> 
         <div class="content">
-            <h2>產品新增 </h2>
-
-            <form method = "post" enctype="multipart/form-data" action = "/product/add">
-                <div class="form">
-                    <span class="name">產品編號</span>
-                    <span class="value"><input type="text" name="prono" maxlength="4" pattern="[A-Z]{1}\d{3}" title="1碼大寫英文及4碼數字" required></span>
-                    <br/>
-                                    
-                    <span class="name">產品名稱</span>
-                    <span class="value"><input type="text" name="proname" ></span>
-                    <br/>
-                                    
-                    <span class="name">產品型別: </span>
-                    <span class="value"> 
-                        <select name="typno" >
-                            <% for(var i=0; i<result.protype.length; i++) {%>
-                                <option value="<%= result.protype[i].typno %>"><%= result.protype[i].typename %></option>
-                            <% } %> 
-                        </select>
-                    </span>
-                    <br/> 
-                                                    
-                    <span class="name">單價</span>
-                    <span class="value"><input type="number" name="price" min="10" max="500" placeholder="10~500"></span>
-                    <br/>
-                                    
-                    <span class="name">選擇照片</span>
-                    <span class="value"><input type="file" name="picture" /></span>
-                    <br/>
-                                                                
-                    <span class="name"></span>
-                    <span class="value"><input type="submit" value="新增" ></span>    
-                </div>    
-            </form>         
-               
+            <h2>已更新<%= results %>筆資料</h2>      
         </div>       
         
         <!--~~~~~~~~~~~~~~~~~--> 

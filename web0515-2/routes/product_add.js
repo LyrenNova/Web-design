@@ -46,7 +46,7 @@ router.post('/', upload.single('picture'), function(req, res, next) {
     var picture;                           //用來存放圖片名稱
 
     // 如果有選擇圖片
-    if (typeof req.file != 'undefined'){
+    if (typeof(req.file) != 'undefined'){
         picture=req.file.filename;   //取得上傳照片名稱
     }
 
